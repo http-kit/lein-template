@@ -9,9 +9,11 @@
             [lein-template.handlers.api :as api]
             [compojure.route :as route]))
 
+;; define mapping here
 (defroutes server-routes*
   (GET "/" [] app/show-landing)
   (context "/api" []
+           ;; JGET returns json encoding of the response
            (JGET "/time" [] api/get-time))
   (route/files "/static") ;; files under public folder, prefix /static
   (route/not-found "<p>Page not found.</p>" ))

@@ -10,6 +10,13 @@
 
 (defonce server (atom nil))
 
+(defn start-server []
+  ;; stop it if started, for run -main multi-times in repl
+  (when-not (nil? @server) (@server))
+  ;; other init staff, like init-db, init-redis, ...
+  (reset! server (run-server (server-routes) {:port (cfg :port)
+                                              :thread (cfg :thread)})))
+
 (defn -main [& args]
   (let [[options _ banner]
         (cli args
@@ -20,7 +27,5 @@
     (when (:help options) (println banner) (System/exit 0))
     ;; config can be accessed by (cfg :key)
     (swap! app-configs merge options)
-    (when-not (nil? @server) (@server)) ;; for run -main multi-times
-    (reset! server (run-server (server-routes) {:port (cfg :port)
-                                                :thread (cfg :thread)}))
+    (start-server)
     (info (str "server started. listen on 0.0.0.0@" (cfg :port)))))
