@@ -2,6 +2,7 @@
 <html>
   <!-- http://mustache.github.com/mustache.5.html -->
   <head>
+    <!-- partial is just like copy and paste the template here -->
     {{>partials/header}}
   </head>
   <body>
@@ -29,6 +30,15 @@
 
       <h1>Bootstrap starter template</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+      <p>Your user agent is : {{ user-agent }}</p>
+
+      <h3>Example list</h3>
+      <ul>
+        {{#list}}
+          <li>{{ . }}</li>
+        {{/list}}
+      </ul>
 
     </div>
     <script src="/static/js/lib/jquery-1.8.3.js"></script>
