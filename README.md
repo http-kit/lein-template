@@ -1,13 +1,9 @@
 # lein-template
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A Leiningen 2.0 template for Clojure web programming (working in progress)
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Feng Shen
 
 Distributed under the Eclipse Public License, the same as Clojure.

@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# allow attach debugger
+# -Xdebug -Xrunjdwp:transport=dt_socket,address=9092,server=y,suspend=n \
+
 java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 \
-    -Xdebug -Xrunjdwp:transport=dt_socket,address=9092,server=y,suspend=n \
     -cp "$(lein classpath)" clojure.main -m lein-template.main $@

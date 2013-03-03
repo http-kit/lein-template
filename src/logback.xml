@@ -1,13 +1,32 @@
+
 <configuration scan="false">
+  <!-- http://logback.qos.ch/manual/configuration.html -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date [%thread] %-5level %logger{0} - %msg%n
+      </pattern>
+    </encoder>
+  </appender>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%date [%thread] %-5level %logger{0} - %msg%n
-            </pattern>
-        </encoder>
-    </appender>
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 
-    <root level="INFO">
-        <appender-ref ref="STDOUT"/>
-    </root>
+    <encoder>
+      <pattern>%date [%thread] %-5level %logger{0} - %msg%n</pattern>
+    </encoder>
+
+    <file>server.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- weekly rollover -->
+      <FileNamePattern>server.%d{yyyy-ww}.log</FileNamePattern>
+      <!-- keep 2 years worth of history -->
+      <maxHistory>108</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+    <!-- uncomment this line also log to file -->
+    <!-- <appender-ref ref="FILE"/> -->
+  </root>
 </configuration>

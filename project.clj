@@ -16,6 +16,10 @@
 
                  [http-kit "2.0.0-RC4"]
 
+                 [http-kit/dbcp "0.1.0"] ;; database access
+
+                 [mysql/mysql-connector-java "5.1.21"] ;; mysql jdbc driver
+
                  ;; [org.fressian/fressian "0.6.3"]
 
                  ;; for serialization clojure object to bytes

@@ -9,6 +9,7 @@
     (try (handler req)
          (catch Exception e
            (error e "error handling request" req)
+           ;; provide a better page for 500 here
            {:status 500 :body "Sorry, an error occured."}))))
 
 (defn wrap-request-logging-in-dev [handler]
@@ -27,7 +28,7 @@
 (defn wrap-reload-in-dev [handler]
   (if (= (conf/cfg :profile) :dev)
     (fn [req]
-      (require :reload 'lein-template.tmpls)
+      (require :reload 'lein-template.tmpls) ; reload templates
       (handler req))
     handler))
 
