@@ -41,7 +41,7 @@
       </ul>
 
     </div>
-    <script src="/static/js/lib/jquery-1.8.3.js"></script>
+    <script src="/static/js/lib/jquery-1.9.1.js"></script>
     <script src="/static/js/lib/bootstrap.js"></script>
   </body>
 </html>

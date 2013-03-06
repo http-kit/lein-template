@@ -8,9 +8,9 @@
   :uberjar-name "lein-template-standalone.jar"
   :plugins [[lein-swank "1.4.4"]]
   :dependencies [[org.clojure/clojure "1.4.0"]
-                 [org.clojure/tools.cli "0.2.1"]
-                 [compojure "1.1.1"]
-                 [ring/ring-core "1.1.3"]
+                 [org.clojure/tools.cli "0.2.2"]
+                 [compojure "1.1.5"]
+                 [ring/ring-core "1.1.8"]
 
                  [org.clojure/data.json "0.2.1"]
 
@@ -29,7 +29,7 @@
                  ;; [com.taoensso/carmine "1.5.0"]
 
                  ;; logging,  another option [com.taoensso/timbre "1.5.2"]
-                 [org.clojure/tools.logging "0.2.3"]
+                 [org.clojure/tools.logging "0.2.6"]
                  [ch.qos.logback/logback-classic "1.0.1"]
                  ;; template
                  [me.shenfeng/mustache "1.1"]])
