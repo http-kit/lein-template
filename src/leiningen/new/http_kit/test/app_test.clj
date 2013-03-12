@@ -1,5 +1,5 @@
-(ns lein-template.app-test
-  (:use lein-template.test-common
+(ns {{sanitized-ns}}.app-test
+  (:use {{sanitized-ns}}.test-common
         clojure.test))
 
 (deftest test-landing-page

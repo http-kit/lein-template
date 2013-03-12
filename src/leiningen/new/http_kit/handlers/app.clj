@@ -1,5 +1,5 @@
-(ns lein-template.handlers.app
-  (:require [lein-template.tmpls :as tmpl]))
+(ns {{sanitized-ns}}.handlers.app
+  (:require [{{sanitized-ns}}.tmpls :as tmpl]))
 
 (defn show-landing [req]
   (tmpl/landing {:user-agent (get-in req [:headers "user-agent"])

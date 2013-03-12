@@ -1,4 +1,4 @@
-(ns lein-template.config)
+(ns {{sanitized-ns}}.config)
 
 (defonce app-configs (atom {:profile :dev}))
 

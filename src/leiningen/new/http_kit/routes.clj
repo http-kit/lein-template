@@ -1,12 +1,12 @@
-(ns lein-template.routes
+(ns {{sanitized-ns}}.routes
   (:use [compojure.core :only [defroutes GET POST DELETE ANY context]]
         (ring.middleware [keyword-params :only [wrap-keyword-params]]
                          [params :only [wrap-params]]
                          [session :only [wrap-session]])
-        [lein-template.middleware :only [wrap-failsafe wrap-request-logging-in-dev
+        [{{sanitized-ns}}.middleware :only [wrap-failsafe wrap-request-logging-in-dev
                                          wrap-reload-in-dev JGET JPUT JPOST JDELETE]])
-  (:require [lein-template.handlers.app :as app]
-            [lein-template.handlers.api :as api]
+  (:require [{{sanitized-ns}}.handlers.app :as app]
+            [{{sanitized-ns}}.handlers.api :as api]
             [compojure.route :as route]))
 
 ;; define mapping here

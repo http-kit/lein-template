@@ -1,7 +1,7 @@
-(ns lein-template.middleware
+(ns {{sanitized-ns}}.middleware
   (:use [compojure.core :only [GET POST DELETE PUT]]
         [clojure.tools.logging :only [debug error info]]
-        [lein-template.config :as conf]
+        [{{sanitized-ns}}.config :as conf]
         [clojure.data.json :only [write-str]]))
 
 (defn wrap-failsafe [handler]
@@ -28,14 +28,14 @@
 (defn wrap-reload-in-dev [handler]
   (if (= (conf/cfg :profile) :dev)
     (fn [req]
-      (require :reload 'lein-template.tmpls) ; reload templates
+      (require :reload '{{sanitized-ns}}.tmpls) ; reload templates
       (handler req))
     handler))
 
 (defn wrap-json [handler]
   (fn [req]
     (let [resp (handler req)
-          json-resp (if (contains? resp :body)
+          json-resp (if (and (map? resp) (contains? resp :body))
                       (update-in resp [:body] write-str)
                       {:body (write-str resp)})]
       (update-in (merge {:status 200} json-resp)

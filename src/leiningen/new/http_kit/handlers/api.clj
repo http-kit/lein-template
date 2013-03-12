@@ -1,4 +1,4 @@
-(ns lein-template.handlers.api
+(ns {{sanitized-ns}}.handlers.api
   )
 
 (defn get-time [req]

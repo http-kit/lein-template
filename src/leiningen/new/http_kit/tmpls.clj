@@ -1,5 +1,5 @@
-(ns lein-template.tmpls
-  (:use [lein-template.config :only [cfg]]
+(ns {{sanitized-ns}}.tmpls
+  (:use [{{sanitized-ns}}.config :only [cfg]]
         [me.shenfeng.mustache :only [gen-tmpls-from-resources]]))
 
 (defn add-info [data]

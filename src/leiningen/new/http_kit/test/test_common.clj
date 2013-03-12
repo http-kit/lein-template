@@ -1,5 +1,5 @@
-(ns lein-template.test-common
-  (:use [lein-template.routes :only [server-routes]]
+(ns {{sanitized-ns}}.test-common
+  (:use [{{sanitized-ns}}.routes :only [server-routes]]
         [clojure.data.json :only [read-str]]))
 
 (def test-app server-routes)

@@ -2,7 +2,7 @@
 {{#title}}<title>{{title}}</title>{{/title}}
 
   <!-- No title, use default one -->
-{{^title}}<title>lein-template</title>{{/title}}
+{{^title}}<title>{{sanitized-ns}}</title>{{/title}}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/static/css/style.css" rel="stylesheet"/>
 <link href="/static/css/bootstrap.css" rel="stylesheet"/>

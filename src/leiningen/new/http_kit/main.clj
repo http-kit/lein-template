@@ -1,11 +1,11 @@
-(ns lein-template.main
+(ns {{sanitized-ns}}.main
   (:gen-class)
-  (:use [lein-template.config :only [app-configs cfg]]
+  (:use [{{sanitized-ns}}.config :only [app-configs cfg]]
         [clojure.tools.cli :only [cli]]
         ;; database access
         ;; [org.httpkit.dbcp :only [use-database! close-database!]]
         [org.httpkit.server :only [run-server]]
-        [lein-template.routes :only [server-routes]]
+        [{{sanitized-ns}}.routes :only [server-routes]]
         [clojure.tools.logging :only [info]]))
 
 (defn- to-int [s] (Integer/parseInt s))
