@@ -3,9 +3,78 @@
 A Leiningen 2.0 template for Clojure web programming (working in progress)
 
 
-### How to start in dev
+# How to install
 
-`./scripts/run`
+Add the following to your `~/.lein/profiles.clj`
+
+```clj
+{:user {:plugins [
+                  [http-kit/lein-template "1.0.0-SNAPSHOT"]
+                  ]}}
+```
+
+Use it:
+
+```sh
+lein new http-kit your.project.name
+```
+
+For example:
+
+```sh
+lein new http-kit clj_web && cd clj_web
+
+=>
+├── README.md
+├── project.clj
+├── public
+│   ├── css
+│   │   ├── bootstrap-responsive.css
+│   │   ├── bootstrap.css
+│   │   └── style.css
+│   ├── img
+│   │   ├── glyphicons-halflings-white.png
+│   │   └── glyphicons-halflings.png
+│   └── js
+│       └── lib
+│           ├── bootstrap.js
+│           └── jquery-1.9.1.js
+├── scripts
+│   └── run
+├── src
+│   ├── clj_web
+│   │   ├── config.clj
+│   │   ├── handlers
+│   │   │   ├── api.clj
+│   │   │   └── app.clj
+│   │   ├── main.clj
+│   │   ├── middleware.clj
+│   │   ├── routes.clj
+│   │   └── tmpls.clj
+│   ├── logback.xml
+│   └── templates
+│       ├── landing.tpl
+│       └── partials
+│           └── header.tpl
+└── test
+    ├── clj_web
+    │   ├── app_test.clj
+    │   └── test_common.clj
+    └── logback-test.xml
+
+```
+
+### Start the a server for local testing
+
+```sh
+./scripts/run
+```
+
+### Run unit test
+
+```sh
+lein test
+```
 
 ### Template (Mustache)
 
