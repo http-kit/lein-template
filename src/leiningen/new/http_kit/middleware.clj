@@ -1,8 +1,8 @@
 (ns {{sanitized-ns}}.middleware
-  (:use [compojure.core :only [GET POST DELETE PUT]]
-        [clojure.tools.logging :only [debug error info]]
-        [{{sanitized-ns}}.config :as conf]
-        [clojure.data.json :only [write-str]]))
+    (:use [compojure.core :only [GET POST DELETE PUT]]
+          [clojure.tools.logging :only [debug error info]]
+          [{{sanitized-ns}}.config :as conf]
+          [clojure.data.json :only [write-str]]))
 
 (defn wrap-failsafe [handler]
   (fn [req]
@@ -32,15 +32,15 @@
       (handler req))
     handler))
 
-(defn wrap-json [handler]
-  (fn [req]
-    (let [resp (handler req)
-          json-resp (if (and (map? resp) (contains? resp :body))
-                      (update-in resp [:body] write-str)
-                      {:body (write-str resp)})]
-      (update-in (merge {:status 200} json-resp)
-                 [:headers] merge {"Content-Type"
-                                   "application/json; charset=utf-8"}))))
+(defn json-response [resp]
+  (let [json-resp (if (and (map? resp) (contains? resp :body))
+                    (update-in resp [:body] write-str)
+                    {:body (write-str resp)})]
+    (update-in (merge {:status 200} json-resp)
+               [:headers] merge {"Content-Type"
+                                 "application/json; charset=utf-8"})))
+
+(defn wrap-json [handler] (fn [req] (json-response (handler req))))
 
 (defmacro JPOST [path args handler]
   `(POST ~path ~args (wrap-json ~handler)))

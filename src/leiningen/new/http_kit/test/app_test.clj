@@ -7,7 +7,7 @@
                         :uri "/"})]
     (is (= 200 (:status resp)))))
 
-(deftest test-landing-page
+(deftest test-get-time
   (let [resp (test-app {:request-method :get
                         :uri "/api/time"})]
     (is (= 200 (:status resp)))

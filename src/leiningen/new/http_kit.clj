@@ -55,4 +55,5 @@
              ["test/{{fs-path}}/test_common.clj"           (render "test/test_common.clj" data)]
              ["test/{{fs-path}}/app_test.clj"              (render "test/app_test.clj" data)]
              ["test/logback-test.xml"                      (render "test/logback_test.xml" data)])
-    (println (sh "chmod" "+x" (str short-name "/scripts/run")))))
+    (sh "chmod" "+x" (str short-name "/scripts/run"))
+    (println "have fun")))

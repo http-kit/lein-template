@@ -1,13 +1,13 @@
 (ns {{sanitized-ns}}.routes
-  (:use [compojure.core :only [defroutes GET POST DELETE ANY context]]
-        (ring.middleware [keyword-params :only [wrap-keyword-params]]
-                         [params :only [wrap-params]]
-                         [session :only [wrap-session]])
-        [{{sanitized-ns}}.middleware :only [wrap-failsafe wrap-request-logging-in-dev
-                                         wrap-reload-in-dev JGET JPUT JPOST JDELETE]])
-  (:require [{{sanitized-ns}}.handlers.app :as app]
-            [{{sanitized-ns}}.handlers.api :as api]
-            [compojure.route :as route]))
+    (:use [compojure.core :only [defroutes GET POST DELETE ANY context]]
+          (ring.middleware [keyword-params :only [wrap-keyword-params]]
+                           [params :only [wrap-params]]
+                           [session :only [wrap-session]])
+          [{{sanitized-ns}}.middleware :only [wrap-failsafe wrap-request-logging-in-dev
+                                              wrap-reload-in-dev JGET JPUT JPOST JDELETE]])
+    (:require [{{sanitized-ns}}.handlers.app :as app]
+              [{{sanitized-ns}}.handlers.api :as api]
+              [compojure.route :as route]))
 
 ;; define mapping here
 (defroutes server-routes*
@@ -21,10 +21,10 @@
   ;; 404, modify for a better 404 page
   (route/not-found "<p>Page not found.</p>" ))
 
-(def server-routes (-> server-routes*
-                       wrap-session
-                       wrap-keyword-params
-                       wrap-params
-                       wrap-request-logging-in-dev
-                       wrap-reload-in-dev
-                       wrap-failsafe))
+(defn app [] (-> #'server-routes*
+                 wrap-session
+                 wrap-keyword-params
+                 wrap-params
+                 wrap-request-logging-in-dev
+                 wrap-reload-in-dev
+                 wrap-failsafe))
