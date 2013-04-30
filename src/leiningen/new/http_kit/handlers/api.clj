@@ -3,4 +3,4 @@
 
 (defn get-time [req]
   {:time (System/currentTimeMillis)
-   :req req})
+   :req (merge req {:async-channel nil})})
