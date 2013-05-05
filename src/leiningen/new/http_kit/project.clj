@@ -7,14 +7,14 @@
   :aot [{{sanitized-ns}}.main]
   :uberjar-name "{{sanitized-ns}}-standalone.jar"
   :plugins [[lein-swank "1.4.4"]]
-  :dependencies [[org.clojure/clojure "1.4.0"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.cli "0.2.2"]
                  [compojure "1.1.5"]
                  [ring/ring-core "1.1.8"]
 
                  [org.clojure/data.json "0.2.1"]
 
-                 [http-kit "2.0.0"]
+                 [http-kit "2.1.0"]
 
                  [http-kit/dbcp "0.1.0"] ;; database access
 
