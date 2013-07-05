@@ -14,7 +14,7 @@
 
                  [org.clojure/data.json "0.2.1"]
 
-                 [http-kit "2.1.0"]
+                 [http-kit "2.1.5"]
 
                  [http-kit/dbcp "0.1.0"] ;; database access
 
