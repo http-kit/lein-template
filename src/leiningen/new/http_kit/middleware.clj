@@ -1,5 +1,5 @@
 (ns {{sanitized-ns}}.middleware
-    (:use [compojure.core :only [GET POST DELETE PUT]]
+    (:use [compojure.core :only [GET POST DELETE PUT PATCH]]
           [clojure.tools.logging :only [debug error info]]
           [{{sanitized-ns}}.config :as conf]
           [clojure.data.json :only [write-str]]))
@@ -47,6 +47,9 @@
 
 (defmacro JPUT [path args handler]
   `(PUT ~path ~args (wrap-json ~handler)))
+
+(defmacro JPATCH [path args handler]
+  `(PATCH ~path ~args (wrap-json ~handler)))
 
 (defmacro JGET [path args handler]
   `(GET ~path ~args (wrap-json ~handler)))
