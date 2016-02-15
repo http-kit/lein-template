@@ -2,6 +2,7 @@
     (:use [compojure.core :only [GET POST DELETE PUT PATCH]]
           [clojure.tools.logging :only [debug error info]]
           [{{sanitized-ns}}.config :as conf]
+          [ring.middleware.reload :only [wrap-reload]]
           [clojure.data.json :only [write-str]]))
 
 (defn wrap-failsafe [handler]
@@ -27,9 +28,7 @@
 
 (defn wrap-reload-in-dev [handler]
   (if (= (conf/cfg :profile) :dev)
-    (fn [req]
-      (require :reload '{{sanitized-ns}}.tmpls) ; reload templates
-      (handler req))
+    (wrap-reload handler)
     handler))
 
 (defn json-response [resp]
