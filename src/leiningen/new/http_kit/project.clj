@@ -8,13 +8,13 @@
   :uberjar-name "{{sanitized-ns}}-standalone.jar"
   ;; :plugins [[lein-swank "1.4.4"]]
   :plugins [[lein-cljfmt "0.3.0"]]
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/tools.cli "0.2.2"]
-                 [compojure "1.1.5"]
-                 [ring/ring-core "1.1.8"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.cli "0.2.6"]
+                 [compojure "1.4.0"]
+                 [ring/ring-core "1.4.0"]
                  [ring/ring-devel "1.4.0"]
 
-                 [org.clojure/data.json "0.2.1"]
+                 [org.clojure/data.json "0.2.6"]
 
                  [http-kit "2.1.21-alpha2"]
 
