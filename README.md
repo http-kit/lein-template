@@ -87,7 +87,8 @@ files in src/templates, a Clojure function is created according to tempalte name
 
 1. `lein uberjar` create a standalone executable jar file in the target directory
 2. copy the jar and the `public` directory to your production server
-3. ```sh
+3. Run the server from the jar
+```sh
 java -jar target/lein-template-standalone.jar --profile prod --port 8000
 ```
 
